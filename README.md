@@ -14,6 +14,14 @@ Link to be edited
 
 ---
 
+### How to run the app?
+
+- cd dirName
+- npm install
+- npm run dev
+
+---
+
 ### Technologies and tools used:
 
 - HTML
