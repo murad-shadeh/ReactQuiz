@@ -19,6 +19,14 @@ Link to be edited
 - cd dirName
 - npm install
 - npm run dev
+- new terminal window - npm run server
+
+---
+
+### Other packages to install:
+
+- npm i json-server
+- new script in the package.json file - "server": "json-server --watch data/questions.json --port 8000"
 
 ---
 
