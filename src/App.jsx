@@ -4,6 +4,7 @@ import Main from "./Main";
 import Loader from "./Loader";
 import Error from "./Error";
 import StartScreen from "./StartScreen";
+import Questions from "./Questions";
 
 const initialState = {
   questions: [],
@@ -16,21 +17,23 @@ const reducer = (state, action) => {
       return { ...state, questions: action.payload, status: "ready" };
     case "dataFailed":
       return { ...state, status: "error" };
+    case "start":
+      return { ...state, status: "active" };
     default:
       throw new Error(`Unknown action type: ${action.type}`);
   }
 };
 const App = () => {
-  const [{ questions, status }, dispactch] = useReducer(reducer, initialState);
+  const [{ questions, status }, dispatch] = useReducer(reducer, initialState);
   const numberOfQuestions = questions.length;
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await fetch("http://localhost:8000/questions");
         const data = await res.json();
-        dispactch({ type: "dataReceived", payload: data });
+        dispatch({ type: "dataReceived", payload: data });
       } catch (err) {
-        dispactch({ type: "dataFailed" });
+        dispatch({ type: "dataFailed" });
       }
     };
 
@@ -40,11 +43,16 @@ const App = () => {
     <div className="app">
       <Header />
       <Main>
+        {/* the status here are used by order */}
         {status === "loading" && <Loader />}
         {status === "error" && <Error />}
         {status === "ready" && (
-          <StartScreen numberOfQuestions={numberOfQuestions} />
+          <StartScreen
+            numberOfQuestions={numberOfQuestions}
+            dispatch={dispatch}
+          />
         )}
+        {status === "active" && <Questions />}
       </Main>
     </div>
   );
