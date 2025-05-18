@@ -1,6 +1,6 @@
 import { useEffect, useReducer } from "react";
 import Header from "./Header";
-import Main from "./Main";
+import Main from "../Main";
 import Loader from "./Loader";
 import Error from "./Error";
 import StartScreen from "./StartScreen";
@@ -10,6 +10,8 @@ const initialState = {
   questions: [],
   // loading, error,ready,active, finished
   status: "loading",
+  // we need to know the index of the current question
+  index: 0,
 };
 const reducer = (state, action) => {
   switch (action.type) {
@@ -24,7 +26,10 @@ const reducer = (state, action) => {
   }
 };
 const App = () => {
-  const [{ questions, status }, dispatch] = useReducer(reducer, initialState);
+  const [{ questions, status, index }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
   const numberOfQuestions = questions.length;
   useEffect(() => {
     const fetchData = async () => {
@@ -52,7 +57,7 @@ const App = () => {
             dispatch={dispatch}
           />
         )}
-        {status === "active" && <Questions />}
+        {status === "active" && <Questions question={questions[index]} />}
       </Main>
     </div>
   );
