@@ -12,6 +12,8 @@ const initialState = {
   status: "loading",
   // we need to know the index of the current question
   index: 0,
+  answer: null,
+  points: 0,
 };
 const reducer = (state, action) => {
   switch (action.type) {
@@ -21,12 +23,24 @@ const reducer = (state, action) => {
       return { ...state, status: "error" };
     case "start":
       return { ...state, status: "active" };
+    case "newAnswer":
+      // eslint-disable-next-line no-case-declarations
+      const question = state.questions.at(state.index);
+      return {
+        ...state,
+        answer: action.payload,
+        // must check if the answer is correct first to add the points
+        points:
+          action.payload === question.correctOption
+            ? state.points + question.points
+            : state.points,
+      };
     default:
       throw new Error(`Unknown action type: ${action.type}`);
   }
 };
 const App = () => {
-  const [{ questions, status, index }, dispatch] = useReducer(
+  const [{ questions, status, index, answer }, dispatch] = useReducer(
     reducer,
     initialState
   );
@@ -38,6 +52,7 @@ const App = () => {
         const data = await res.json();
         dispatch({ type: "dataReceived", payload: data });
       } catch (err) {
+        console.log(err);
         dispatch({ type: "dataFailed" });
       }
     };
@@ -57,7 +72,13 @@ const App = () => {
             dispatch={dispatch}
           />
         )}
-        {status === "active" && <Questions question={questions[index]} />}
+        {status === "active" && (
+          <Questions
+            question={questions[index]}
+            dispatch={dispatch}
+            answer={answer}
+          />
+        )}
       </Main>
     </div>
   );
