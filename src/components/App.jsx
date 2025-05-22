@@ -1,12 +1,13 @@
 import { useEffect, useReducer } from "react";
 import Header from "./Header";
-import Main from "../Main";
-import Loader from "./Loader";
-import Error from "./Error";
+import Main from "./Main";
 import StartScreen from "./StartScreen";
 import Questions from "./Questions";
 import NextButton from "./NextButton";
 import Progress from "./Progress";
+import FinishScreen from "./FinishScreen";
+import Error from "./Error";
+import Loader from "./Loader";
 
 const initialState = {
   questions: [],
@@ -16,6 +17,7 @@ const initialState = {
   index: 0,
   answer: null,
   points: 0,
+  highestScore: 0,
 };
 const reducer = (state, action) => {
   switch (action.type) {
@@ -39,15 +41,20 @@ const reducer = (state, action) => {
       };
     case "nextQuestion":
       return { ...state, index: state.index + 1, answer: null };
+    case "finish":
+      return {
+        ...state,
+        status: "finished",
+        highestScore:
+          state.points > state.highestScore ? state.points : state.highestScore,
+      };
     default:
       throw new Error(`Unknown action type: ${action.type}`);
   }
 };
 const App = () => {
-  const [{ questions, status, index, answer, points }, dispatch] = useReducer(
-    reducer,
-    initialState
-  );
+  const [{ questions, status, index, answer, points, highestScore }, dispatch] =
+    useReducer(reducer, initialState);
   const numberOfQuestions = questions.length;
   const totalPoints = questions.reduce(
     (acc, question) => acc + question.points,
@@ -94,8 +101,21 @@ const App = () => {
               dispatch={dispatch}
               answer={answer}
             />
-            <NextButton dispatch={dispatch} answer={answer} />
+            <NextButton
+              dispatch={dispatch}
+              answer={answer}
+              numberOfQuestions={numberOfQuestions}
+              index={index}
+            />
           </>
+        )}
+        {status === "finished" && (
+          <FinishScreen
+            totalPoints={totalPoints}
+            points={points}
+            dispatch={dispatch}
+            highestScore={highestScore}
+          />
         )}
       </Main>
     </div>
