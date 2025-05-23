@@ -1,4 +1,4 @@
-const FinishScreen = ({ totalPoints, points, highestScore }) => {
+const FinishScreen = ({ totalPoints, points, highestScore, dispatch }) => {
   // Calculating the percentage of points scored
   const percentage = (points / totalPoints) * 100;
   return (
@@ -11,6 +11,13 @@ const FinishScreen = ({ totalPoints, points, highestScore }) => {
         points.
       </p>
       <p className="highscore">(Highest score is: 😎 {highestScore} points)</p>
+      <button
+        className="btn btn-ui"
+        onClick={() => dispatch({ type: "restart" })}
+      >
+        {" "}
+        Retake Quiz{" "}
+      </button>
     </>
   );
 };

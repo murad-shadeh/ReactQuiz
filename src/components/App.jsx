@@ -48,6 +48,14 @@ const reducer = (state, action) => {
         highestScore:
           state.points > state.highestScore ? state.points : state.highestScore,
       };
+    case "restart":
+      return {
+        ...state,
+        status: "ready",
+        index: 0,
+        answer: null,
+        points: 0,
+      };
     default:
       throw new Error(`Unknown action type: ${action.type}`);
   }
