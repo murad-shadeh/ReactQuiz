@@ -8,7 +8,10 @@ import Progress from "./Progress";
 import FinishScreen from "./FinishScreen";
 import Error from "./Error";
 import Loader from "./Loader";
+import Timer from "./Timer";
+import Footer from "./Footer";
 
+const SECS_PER_QUESTION = 30;
 const initialState = {
   questions: [],
   // loading, error,ready,active, finished
@@ -18,6 +21,8 @@ const initialState = {
   answer: null,
   points: 0,
   highestScore: 0,
+  // will calculate the remaining seconds once the quiz starts
+  remainingSeconds: null,
 };
 const reducer = (state, action) => {
   switch (action.type) {
@@ -26,7 +31,11 @@ const reducer = (state, action) => {
     case "dataFailed":
       return { ...state, status: "error" };
     case "start":
-      return { ...state, status: "active" };
+      return {
+        ...state,
+        status: "active",
+        remainingSeconds: state.questions.length * SECS_PER_QUESTION,
+      };
     case "newAnswer":
       // eslint-disable-next-line no-case-declarations
       const question = state.questions.at(state.index);
@@ -55,14 +64,32 @@ const reducer = (state, action) => {
         index: 0,
         answer: null,
         points: 0,
+        remainingSeconds: null,
+      };
+    case "tick":
+      return {
+        ...state,
+        remainingSeconds: state.remainingSeconds - 1,
+        // checking if timer becomes 0
+        status: state.remainingSeconds <= 0 ? "finished" : state.status,
       };
     default:
       throw new Error(`Unknown action type: ${action.type}`);
   }
 };
 const App = () => {
-  const [{ questions, status, index, answer, points, highestScore }, dispatch] =
-    useReducer(reducer, initialState);
+  const [
+    {
+      questions,
+      status,
+      index,
+      answer,
+      points,
+      highestScore,
+      remainingSeconds,
+    },
+    dispatch,
+  ] = useReducer(reducer, initialState);
   const numberOfQuestions = questions.length;
   const totalPoints = questions.reduce(
     (acc, question) => acc + question.points,
@@ -109,12 +136,15 @@ const App = () => {
               dispatch={dispatch}
               answer={answer}
             />
-            <NextButton
-              dispatch={dispatch}
-              answer={answer}
-              numberOfQuestions={numberOfQuestions}
-              index={index}
-            />
+            <Footer>
+              <Timer dispatch={dispatch} remainingSeconds={remainingSeconds} />
+              <NextButton
+                dispatch={dispatch}
+                answer={answer}
+                numberOfQuestions={numberOfQuestions}
+                index={index}
+              />
+            </Footer>
           </>
         )}
         {status === "finished" && (
