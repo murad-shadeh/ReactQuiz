@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap");
 :root {
   --color-darkest: #343a40;
   --color-dark: #495057;
@@ -8,7 +9,7 @@
   --color-accent: #ffa94d;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Codystar&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Codystar&display=swap"); */
 
 * {
   margin: 0;
@@ -42,10 +43,21 @@ body {
 
 .app-header {
   width: 66rem;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+}
+
+.app-header h1 {
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+.app-header img {
+  padding-right: 1rem;
+  width: 100px;
 }
 
 .error {
