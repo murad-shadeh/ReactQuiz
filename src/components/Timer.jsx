@@ -14,7 +14,9 @@ const Timer = ({ dispatch, remainingSeconds }) => {
   }, [dispatch]);
   return (
     <div className="timer">
-      {minutes}:{seconds}
+      {minutes < 10 && "0"}
+      {minutes}:{seconds < 10 && "0"}
+      {seconds}
     </div>
   );
 };

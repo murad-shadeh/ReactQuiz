@@ -4,25 +4,25 @@
       "question": "Which is the most popular JavaScript framework?",
       "options": ["Angular", "React", "Svelte", "Vue"],
       "correctOption": 1,
-      "points": 10
+      "points": 2
     },
     {
       "question": "Which company invented React?",
       "options": ["Google", "Apple", "Netflix", "Facebook"],
       "correctOption": 3,
-      "points": 10
+      "points": 2
     },
     {
       "question": "What's the fundamental building block of React apps?",
       "options": ["Components", "Blocks", "Elements", "Effects"],
       "correctOption": 0,
-      "points": 10
+      "points": 2
     },
     {
       "question": "What's the name of the syntax we use to describe the UI in React components?",
       "options": ["FBJ", "Babel", "JSX", "ES2015"],
       "correctOption": 2,
-      "points": 10
+      "points": 2
     },
     {
       "question": "How does data flow naturally in React apps?",
@@ -33,13 +33,13 @@
         "The developers decides"
       ],
       "correctOption": 0,
-      "points": 10
+      "points": 2
     },
     {
       "question": "How to pass data into a child component?",
       "options": ["State", "Props", "PropTypes", "Parameters"],
       "correctOption": 1,
-      "points": 10
+      "points": 2
     },
     {
       "question": "When to use derived state?",
@@ -50,7 +50,7 @@
         "Whenever the state can be computed from another state variable"
       ],
       "correctOption": 3,
-      "points": 30
+      "points": 2
     },
     {
       "question": "What triggers a UI re-render in React?",
@@ -61,7 +61,7 @@
         "Adding event listeners to DOM elements"
       ],
       "correctOption": 2,
-      "points": 20
+      "points": 2
     },
     {
       "question": "When do we directly \"touch\" the DOM in React?",
@@ -72,7 +72,7 @@
         "Almost never"
       ],
       "correctOption": 3,
-      "points": 20
+      "points": 2
     },
     {
       "question": "In what situation do we use a callback to update state?",
@@ -83,7 +83,7 @@
         "When the new state depends on the previous state"
       ],
       "correctOption": 3,
-      "points": 30
+      "points": 2
     },
     {
       "question": "If we pass a function to useState, when will that function be called?",
@@ -94,13 +94,13 @@
         "The first time we update the state"
       ],
       "correctOption": 2,
-      "points": 30
+      "points": 2
     },
     {
       "question": "Which hook to use for an API request on the component's initial render?",
       "options": ["useState", "useEffect", "useRef", "useReducer"],
       "correctOption": 1,
-      "points": 10
+      "points": 2
     },
     {
       "question": "Which variables should go into the useEffect dependency array?",
@@ -111,7 +111,7 @@
         "All variables needed for clean up"
       ],
       "correctOption": 2,
-      "points": 30
+      "points": 2
     },
     {
       "question": "An effect will always run on the initial render.",
@@ -122,7 +122,7 @@
         "In depends on the code in the effect"
       ],
       "correctOption": 0,
-      "points": 30
+      "points": 2
     },
     {
       "question": "When will an effect run if it doesn't have a dependency array?",
@@ -133,7 +133,7 @@
         "Each time the component is re-rendered"
       ],
       "correctOption": 3,
-      "points": 20
+      "points": 2
     }
   ]
 }
