@@ -14,7 +14,7 @@ Link to be edited
 
 ---
 
-### How to run the app?
+### How to run the app locally?
 
 - cd dirName
 - npm install
