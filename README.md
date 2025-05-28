@@ -36,7 +36,6 @@ Link to be edited
 - CSS
 - JAVASCRIPT
 - REACTJS
-- React Context
 - NodeJS
 - NPM
 - Fetch API
@@ -45,6 +44,7 @@ Link to be edited
 - VSCODE
 - MIRO
 - Netlify
+- Render
 
 ---
 

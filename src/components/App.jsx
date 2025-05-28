@@ -98,7 +98,7 @@ const App = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("http://localhost:8000/questions");
+        const res = await fetch("https://quizserver-ay11.onrender.com/");
         const data = await res.json();
         dispatch({ type: "dataReceived", payload: data });
       } catch (err) {
