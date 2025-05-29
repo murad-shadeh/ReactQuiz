@@ -100,7 +100,7 @@ const App = () => {
       try {
         const res = await fetch("https://quizserver-ay11.onrender.com/");
         const data = await res.json();
-        console.log(data.message);
+        // console.log(data.message);
         dispatch({ type: "dataReceived", payload: data.message });
       } catch (err) {
         console.log(err);
