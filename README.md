@@ -2,7 +2,7 @@
 
 #### A single page web application that tests the user's React Mastery within 15 questions.
 
-#### [View on Netlify](https://testinreact.netlify.app/){:target="\_blank"}
+#### [View on Netlify](https://testinreact.netlify.app/)
 
 Link to be edited
 
