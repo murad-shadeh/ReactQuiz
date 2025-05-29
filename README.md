@@ -1,50 +1,51 @@
-# React Quiz App
+# 🎯 React Quiz App
 
-#### A single-page web application that tests the user's React Mastery within 15 questions.
+A single-page web application that tests the user's **React mastery** with 15 timed questions.
 
-#### [View on Netlify](https://testinreact.netlify.app/)
-
-Link to be edited
+[🚀 View Live on Netlify](https://testinreact.netlify.app/)
 
 ---
 
-## The wireframe
+## 🖼️ Wireframe
 
-![alt text](public/wireframe.jpg)
-
----
-
-### How to run the app locally?
-
-- cd dirName
-- npm install
-- npm run dev
-- new terminal window - npm run server
+![App Wireframe](public/wireframe.jpg)
 
 ---
 
-### Other packages to install:
+## 🛠 Tech Stack
 
-- npm i json-server
-- new script in the package.json file - "server": "json-server --watch data/questions.json --port 8000"
+- **Frontend**: React.js, HTML, CSS, JavaScript
+- **Backend**: Node.js, Express.js
+- **Tools**: Git, GitHub, VSCode, Miro
+- **Deployment**: Netlify (frontend), Render (backend)
 
 ---
 
-### Technologies and tools used:
+## 🧩 Features
 
-- HTML
-- CSS
-- JAVASCRIPT
-- REACTJS
-- NodeJS
-- NPM
-- Fetch API
-- GIT
-- GITHUB
-- VSCODE
-- MIRO
-- Netlify
-- Render
+- Interactive multiple-choice quiz with instant scoring
+- 30-second timer per question
+- Dynamic progress and scoring system
+- Responsive design
+- Restart and finish functionality
+- Clean and modular code using React hooks like useEffect and useReducer
+
+---
+
+## 🧪 Run Locally
+
+```bash
+# Clone the project
+git clone git@github.com:your-username/ReactQuiz.git
+cd dirName
+
+# Install dependencies
+npm install
+
+# Start the frontend
+npm run dev
+
+```
 
 ---
 
