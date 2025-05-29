@@ -1,6 +1,6 @@
 # React Quiz App
 
-#### A single page web application that tests the user's React Mastery within 15 questions.
+#### A single-page web application that tests the user's React Mastery within 15 questions.
 
 #### [View on Netlify](https://testinreact.netlify.app/)
 
