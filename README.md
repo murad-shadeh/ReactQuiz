@@ -4,13 +4,9 @@ A single-page web application that tests the user's **React mastery** with 15 ti
 
 [🚀 View Live on Netlify](https://testinreact.netlify.app/)
 
----
-
 ## 🖼️ Wireframe
 
 ![App Wireframe](public/wireframe.jpg)
-
----
 
 ## 🛠 Tech Stack
 
@@ -18,8 +14,6 @@ A single-page web application that tests the user's **React mastery** with 15 ti
 - **Backend**: Node.js, Express.js
 - **Tools**: Git, GitHub, VSCode, Miro
 - **Deployment**: Netlify (frontend), Render (backend)
-
----
 
 ## 🧩 Features
 
@@ -29,8 +23,6 @@ A single-page web application that tests the user's **React mastery** with 15 ti
 - Responsive design
 - Restart and finish functionality
 - Clean and modular code using React hooks like useEffect and useReducer
-
----
 
 ## 🧪 Run Locally
 
@@ -46,8 +38,6 @@ npm install
 npm run dev
 
 ```
-
----
 
 # React + Vite
 
